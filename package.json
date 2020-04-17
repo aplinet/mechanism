@@ -1,0 +1,25 @@
+{
+  "name": "mechanism",
+  "version": "1.0.0",
+  "description": "CSS column library made for programmers (pragmatic syntax)",
+  "main": "demo/index.html",
+  "scripts": {
+    "start": "node ./node_modules/parcel-bundler/bin/cli demo/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aplinet/mechanism.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aplinet/mechanism/issues"
+  },
+  "homepage": "https://github.com/aplinet/mechanism#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.3"
+  }
+}

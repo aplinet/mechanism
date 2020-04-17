@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mechanism</title>
+  <link rel="stylesheet" href="../src/mechanism.scss">
+  <link rel="stylesheet" href="index.scss">
+</head>
+
+<body>
+
+  <section class="container">
+    <h2>Basic</h2>
+    <div class="flex-row :wrap :col-12">
+      <div>:col-12</div>
+    </div>
+    <div class="flex-row :wrap :col-6">
+      <div>:col-6</div>
+      <div>:col-6</div>
+    </div>
+    <div class="flex-row :wrap :col-4">
+      <div>:col-4</div>
+      <div>:col-4</div>
+      <div>:col-4</div>
+    </div>
+    <div class="flex-row :wrap :col-3">
+      <div>:col-3</div>
+      <div>:col-3</div>
+      <div>:col-3</div>
+      <div>:col-3</div>
+    </div>
+    <div class="flex-row :wrap :col-2">
+      <div>:col-2</div>
+      <div>:col-2</div>
+      <div>:col-2</div>
+      <div>:col-2</div>
+      <div>:col-2</div>
+      <div>:col-2</div>
+    </div>
+  </section>
+  <section class="container">
+    <h2>Responsive</h2>
+    <h3>Exact</h3>
+    <div class="flex-row :wrap :col-6 :col-12-xxs">
+      <div>:col-6 :col-12-xxs</div>
+      <div>:col-6 :col-12-xxs</div>
+    </div>
+    <div class="flex-row :wrap :col-4 :col-6-sm :col-12-xxs :col-12-xs">
+      <div>:col-4 :col-6-sm :col-12-xxs :col-12-xs</div>
+      <div>:col-4 :col-6-sm :col-12-xxs :col-12-xs</div>
+      <div>:col-4 :col-6-sm :col-12-xxs :col-12-xs</div>
+    </div>
+
+    <h3>Range</h3>
+    <div class="flex-row :wrap :col-12 :col-4-sm+">
+      <div>:col-12 :col-4-sm+</div>
+      <div>:col-12 :col-4-sm+</div>
+      <div>:col-12 :col-4-sm+</div>
+    </div>
+  </section>
+  <section class="container">
+    <h2>Fake device size</h2>
+    <div class="flex-row :col-6 :col-4-md">
+      <div class=":media-6 :media-4-md">
+        left
+      </div>
+      <div class=":media-6 :media-4-md">
+        right
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

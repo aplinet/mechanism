@@ -1,0 +1,43 @@
+
+// FEATURE: Child - Auto columns
+
+// @for $i from 1 through $column-count {
+//   .flex-row > .auto-col-#{$i} {
+//     @media #{$pc-large} {
+//       $calculated-column-count: round($i * 4/6);
+//       @if $calculated-column-count > $column-count {
+//         $calculated-column-count: $column-count;
+//       }
+//       flex-basis: (100% / $column-count) * $calculated-column-count;
+//     }
+//     @media #{$pc},#{$large-tablet} {
+//       $calculated-column-count: $i;
+//       flex-basis: (100% / $column-count) * $calculated-column-count;
+//     }
+//     @media #{$large-tabletB} {
+//       $calculated-column-count: round($i * 12/6);
+//       @if $calculated-column-count > $column-count {
+//         $calculated-column-count: $column-count;
+//       }
+//       flex-basis: (100% / $column-count) * $calculated-column-count;
+//     }
+//   }
+// }
+
+// FEATURE: Child - Specific columns
+
+@for $i from 1 through $column-count {
+  .flex-row > .col-#{$i} {
+    flex-basis: 100% / $column-count * $i;
+  }
+}
+
+@each $name, $size in $responsive-map {
+  @media #{$size} {
+    @for $i from 1 through $column-count {
+      .flex-row > .col-#{$i}-#{$name} {
+        flex-basis: 100% / $column-count * $i;
+      }
+    }
+  }
+}

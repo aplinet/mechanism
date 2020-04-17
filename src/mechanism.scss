@@ -1,0 +1,55 @@
+@import "function.scss";
+
+$ranges: (
+  "lg": (
+    min: 1200px
+  ),
+  "md": (
+    min: 992px,
+    max: 1200px
+  ),
+  "sm": (
+    min: 768px,
+    max: 992px
+  ),
+  "xs": (
+    min: 479px,
+    max: 768px
+  ),
+  "xxs": (
+    max: 479px
+  )
+);
+$column-count: 12;
+
+@for $i from 1 through $column-count {
+  .\:media-col-#{$i} {
+    $proportion: $i / $column-count;
+    @debug $proportion;
+  }
+}
+
+$responsive-map: ranges-to-media-map($ranges);
+// @debug map-get($responsive-map, 'xxs');
+// @debug $responsive-map;
+
+// $row-name: 'row';
+.flex-row {
+  display: flex;
+  flex-basis: 100%;
+  // margin-left: -8px;
+  // margin-right: -8px;
+}
+
+.flex-row > * {
+  overflow: hidden;
+  flex: 0 1 auto;
+  // padding: 2px 8px;
+}
+
+@import "row/align.scss";
+@import "row/modifier.scss";
+@import "row/column.scss";
+@import "child/align.scss";
+@import "child/modifier.scss";
+@import "child/column.scss";

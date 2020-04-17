@@ -1,4 +1,6 @@
+@use "sass:map";
 @import "function.scss";
+@import "config.scss";
 
 $ranges: (
   "lg": (
@@ -22,19 +24,34 @@ $ranges: (
 );
 $column-count: 12;
 
-$responsive-map: ranges-to-media-map($ranges);
+$responsive-map: (
+  $column-count: ranges-to-media-map($ranges)
+);
+
+@if ($mock-media) {
+  @for $i from 1 through $column-count - 1 {
+    $scale: $i / $column-count;
+    $responsive-map: map.merge(
+      $responsive-map,
+      (
+        $i: ranges-to-media-map($ranges, 1 / $scale)
+      )
+    );
+  }
+}
+
 // @debug map-get($responsive-map, 'xxs');
 // @debug $responsive-map;
 
 // $row-name: 'row';
-.flex-row {
+.#{$row} {
   display: flex;
   flex-basis: 100%;
   // margin-left: -8px;
   // margin-right: -8px;
 }
 
-.flex-row > * {
+.#{$row} > * {
   overflow: hidden;
   flex: 0 1 auto;
   // padding: 2px 8px;

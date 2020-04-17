@@ -3,52 +3,52 @@
 
 // FEATURE: Child - Shrink & grow
 
-.flex-row > .grow {
+.#{$row} > .grow {
   flex-grow: 1;
 }
-.flex-row > .\!grow {
+.#{$row} > .\!grow {
   flex-grow: 0;
 }
-.flex-row > .shrink {
+.#{$row} > .shrink {
   flex-shrink: 1;
 }
-.flex-row > .\!shrink {
+.#{$row} > .\!shrink {
   flex-shrink: 0;
 }
-.flex-row > .padding {
+.#{$row} > .padding {
   padding: 2px 8px;
 }
-.flex-row > .\!padding {
+.#{$row} > .\!padding {
   padding: 0;
 }
 
-@each $name, $size in $responsive-map {
-  .flex-row > .grow-#{$name} {
+@each $name, $size in map-get($responsive-map,$column-count) {
+  .#{$row} > .grow-#{$name} {
     @media #{$size} {
       flex-grow: 1;
     }
   }
-  .flex-row > .\!grow-#{$name} {
+  .#{$row} > .\!grow-#{$name} {
     @media #{$size} {
       flex-grow: 0;
     }
   }
-  .flex-row > .shrink-#{$name} {
+  .#{$row} > .shrink-#{$name} {
     @media #{$size} {
       flex-shrink: 1;
     }
   }
-  .flex-row > .\!shrink-#{$name} {
+  .#{$row} > .\!shrink-#{$name} {
     @media #{$size} {
       flex-shrink: 0;
     }
   }
-  .flex-row > .padding-#{$name} {
+  .#{$row} > .padding-#{$name} {
     @media #{$size} {
       padding: 2px 8px;
     }
   }
-  .flex-row > .\!padding-#{$name} {
+  .#{$row} > .\!padding-#{$name} {
     @media #{$size} {
       padding: 0;
     }

@@ -7,10 +7,10 @@
 
 $column-color: #79a7a1;
 $column-border: 1px solid #67948e;
-.flex-row {
+.row {
   margin: 1em 0;
 }
-.flex-row > * {
+.row > * {
   min-height: 40px;
   background: #79a7a1;
   font-family: sans-serif;

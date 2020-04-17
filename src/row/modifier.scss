@@ -1,11 +1,11 @@
 // SECTION: Row modifiers
 
 
-.flex-row.margined {
+.#{$row}.margined {
   margin-top: 0.8em;
   margin-bottom: 0.8em;
 }
-.flex-row.padded {
+.#{$row}.padded {
   padding-top: 0.8em;
   padding-bottom: 0.8em;
 }
@@ -13,49 +13,49 @@
 
 // FEATURE: Shrink & grow
 
-.flex-row.\:grow > * {
+.#{$row}.\:grow > * {
   flex-grow: 1;
 }
 
-.flex-row.\:\!grow > * {
+.#{$row}.\:\!grow > * {
   flex-grow: 0;
 }
-.flex-row.\:shrink > * {
+.#{$row}.\:shrink > * {
   flex-shrink: 1;
 }
-.flex-row.\:\!shrink > * {
+.#{$row}.\:\!shrink > * {
   flex-shrink: 0;
 }
 
-.flex-row.\:wrap {
+.#{$row}.\:wrap {
   flex-wrap: wrap;
   > * {
     flex-shrink: 0;
   }
 }
 
-@each $name, $size in $responsive-map {
-  .flex-row.\:grow-#{$name} > * {
+@each $name, $size in map-get($responsive-map,$column-count) {
+  .#{$row}.\:grow-#{$name} > * {
     @media #{$size} {
       flex-grow: 1;
     }
   }
-  .flex-row.\:\!grow-#{$name} > * {
+  .#{$row}.\:\!grow-#{$name} > * {
     @media #{$size} {
       flex-grow: 0;
     }
   }
-  .flex-row.\:shrink-#{$name} > * {
+  .#{$row}.\:shrink-#{$name} > * {
     @media #{$size} {
       flex-shrink: 1;
     }
   }
-  .flex-row.\:\!shrink-#{$name} > * {
+  .#{$row}.\:\!shrink-#{$name} > * {
     @media #{$size} {
       flex-shrink: 0;
     }
   }
-  .flex-row.\:wrap-#{$name} {
+  .#{$row}.\:wrap-#{$name} {
     @media #{$size} {
       flex-wrap: wrap;
       > * {

@@ -1,120 +1,120 @@
 // SECTION: Child modifiers
 
-.flex-row > .align-lt,
-.flex-row > .align-tl {
+.#{$row} > .align-lt,
+.#{$row} > .align-tl {
   margin-right: auto;
   align-self: flex-start;
 }
-.flex-row > .align-ct,
-.flex-row > .align-tc {
+.#{$row} > .align-ct,
+.#{$row} > .align-tc {
   margin-left: auto;
   margin-right: auto;
   align-self: flex-start;
 }
-.flex-row > .align-rt,
-.flex-row > .align-tr {
+.#{$row} > .align-rt,
+.#{$row} > .align-tr {
   margin-left: auto;
   align-self: flex-start;
 }
-.flex-row > .align-lc,
-.flex-row > .align-cl {
+.#{$row} > .align-lc,
+.#{$row} > .align-cl {
   margin-right: auto;
   align-self: center;
 }
-.flex-row > .align-cc {
+.#{$row} > .align-cc {
   margin-left: auto;
   margin-right: auto;
   align-self: center;
 }
-.flex-row > .align-rc,
-.flex-row > .align-cr {
+.#{$row} > .align-rc,
+.#{$row} > .align-cr {
   margin-left: auto;
   align-self: center;
 }
-.flex-row > .align-lb,
-.flex-row > .align-bl {
+.#{$row} > .align-lb,
+.#{$row} > .align-bl {
   margin-right: auto;
   align-self: flex-end;
 }
-.flex-row > .align-cb.flex-row > .align-bc {
+.#{$row} > .align-cb.#{$row} > .align-bc {
   margin-left: auto;
   margin-right: auto;
   align-self: flex-end;
 }
-.flex-row > .align-rb,
-.flex-row > .align-br {
+.#{$row} > .align-rb,
+.#{$row} > .align-br {
   margin-left: auto;
   align-self: flex-end;
 }
 
-.flex-row > .align-r {
+.#{$row} > .align-r {
   margin-left: auto;
 }
-.flex-row > .align-l {
+.#{$row} > .align-l {
   margin-right: auto;
 }
-.flex-row > .align-t {
+.#{$row} > .align-t {
   align-items: flex-start;
 }
-.flex-row > .align-b {
+.#{$row} > .align-b {
   align-items: flex-end;
 }
 
-@each $name, $size in $responsive-map {
-  .flex-row > .align-lt-#{$name},
-  .flex-row > .align-tl-#{$name} {
+@each $name, $size in map-get($responsive-map,$column-count) {
+  .#{$row} > .align-lt-#{$name},
+  .#{$row} > .align-tl-#{$name} {
     @media #{$size} {
       margin-right: auto;
       align-self: flex-start;
     }
   }
-  .flex-row > .align-ct-#{$name},
-  .flex-row > .align-tc-#{$name} {
+  .#{$row} > .align-ct-#{$name},
+  .#{$row} > .align-tc-#{$name} {
     @media #{$size} {
       margin-right: auto;
       margin-left: auto;
       align-self: flex-start;
     }
   }
-  .flex-row > .align-rt-#{$name},
-  .flex-row > .align-tr-#{$name} {
+  .#{$row} > .align-rt-#{$name},
+  .#{$row} > .align-tr-#{$name} {
     @media #{$size} {
       margin-left: auto;
       align-self: flex-start;
     }
   }
 
-  .flex-row > .align-lc-#{$name},
-  .flex-row > .align-cl-#{$name} {
+  .#{$row} > .align-lc-#{$name},
+  .#{$row} > .align-cl-#{$name} {
     @media #{$size} {
       margin-right: auto;
       align-self: center;
     }
   }
-  .flex-row > .align-cc-#{$name} {
+  .#{$row} > .align-cc-#{$name} {
     @media #{$size} {
       margin-right: auto;
       margin-left: auto;
       align-self: center;
     }
   }
-  .flex-row > .align-rc-#{$name},
-  .flex-row > .align-cr-#{$name} {
+  .#{$row} > .align-rc-#{$name},
+  .#{$row} > .align-cr-#{$name} {
     @media #{$size} {
       margin-left: auto;
       align-self: center;
     }
   }
-  .flex-row > .align-lb-#{$name},
-  .flex-row > .align-bl-#{$name} {
+  .#{$row} > .align-lb-#{$name},
+  .#{$row} > .align-bl-#{$name} {
     @media #{$size} {
       margin-right: auto;
       align-self: flex-end;
     }
   }
 
-  .flex-row > .align-cb-#{$name},
-  .flex-row > .align-bc-#{$name} {
+  .#{$row} > .align-cb-#{$name},
+  .#{$row} > .align-bc-#{$name} {
     @media #{$size} {
       margin-right: auto;
       margin-left: auto;
@@ -122,30 +122,30 @@
     }
   }
 
-  .flex-row > .align-rb-#{$name},
-  .flex-row > .align-br-#{$name} {
+  .#{$row} > .align-rb-#{$name},
+  .#{$row} > .align-br-#{$name} {
     @media #{$size} {
       margin-left: auto;
       align-self: flex-end;
     }
   }
 
-  .flex-row > .align-r-#{$name} {
+  .#{$row} > .align-r-#{$name} {
     @media #{$size} {
       margin-left: auto;
     }
   }
-  .flex-row > .align-l-#{$name} {
+  .#{$row} > .align-l-#{$name} {
     @media #{$size} {
       margin-right: auto;
     }
   }
-  .flex-row > .align-b-#{$name} {
+  .#{$row} > .align-b-#{$name} {
     @media #{$size} {
       align-self: flex-end;
     }
   }
-  .flex-row > .align-t-#{$name} {
+  .#{$row} > .align-t-#{$name} {
     @media #{$size} {
       align-self: flex-start;
     }

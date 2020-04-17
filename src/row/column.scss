@@ -2,7 +2,7 @@
 // FEATURE: Auto columns
 
 // @for $i from 1 through $column-count {
-//   .flex-row.\:auto-col-#{$i} > * {
+//   .#{$row}.\:auto-col-#{$i} > * {
 //     @media #{$pc-large} {
 //       $calculated-column-count: round($i * 4/6);
 //       @if $calculated-column-count > $column-count {
@@ -25,32 +25,47 @@
 // }
 
 @for $i from 1 through $column-count {
-  .flex-row.\:col-#{$i} > * {
+  .#{$row}.\:col-#{$i} > * {
     flex-basis: 100% / $column-count * $i;
   }
 }
 
 // FEATURE: Specific columns
 
-@each $name, $size in $responsive-map {
+@each $name, $size in map-get($responsive-map, $column-count) {
   @media #{$size} {
     @for $i from 1 through $column-count {
-      .flex-row.\:col-#{$i}-#{$name} > * {
+      .#{$row}.\:col-#{$i}-#{$name} > * {
         flex-basis: 100% / $column-count * $i;
       }
     }
   }
 }
 
-// FEATURE: Fake device size
-
-@for $i from 1 through $column-count {
-  .\:media-col-#{$i} {
-    $proportion: $i / $column-count;
-    @debug $proportion;
+@if $mock-media {
+  @for $i from 1 through $column-count - 1 {
+    $proportional-map: map-get($responsive-map, $i);
+    .\:media-col-#{$i} {
+      @each $name, $size in $proportional-map {
+        @media #{$size} {
+          @for $j from 1 through $column-count {
+            .#{$row}.\:col-#{$j}-#{$name} > * {
+              flex-basis: 100% / $column-count * $j;
+              &:before {
+                content: "#{$name}";
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
-// .flex-row.\:col-#{$i} > * {
+
+// FEATURE: Mock device size
+
+// .#{$row}.\:col-#{$i} > * {
 //   flex-basis: 100% / $column-count * $i;
 // }
 // }

@@ -43,15 +43,15 @@ $v-aligns: (
 
 @each $hKey, $hExpressionMap in $h-aligns {
   @each $vKey, $vExpressionMap in $v-aligns {
-    .flex-row.\:align-#{$hKey}#{$vKey},
-    .flex-row.\:align-#{$vKey}#{$hKey} {
+    .#{$row}.\:align-#{$hKey}#{$vKey},
+    .#{$row}.\:align-#{$vKey}#{$hKey} {
       #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
       #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
     }
 
-    @each $name, $size in $responsive-map {
-      .flex-row.\:align-#{$hKey}#{$vKey}-#{$name},
-      .flex-row.\:align-#{$vKey}#{$hKey}-#{$name} {
+    @each $name, $size in map-get($responsive-map,$column-count) {
+      .#{$row}.\:align-#{$hKey}#{$vKey}-#{$name},
+      .#{$row}.\:align-#{$vKey}#{$hKey}-#{$name} {
         @media #{$size} {
           #{map-get($hExpressionMap,property)}: #{map-get(
               $hExpressionMap,
@@ -68,11 +68,11 @@ $v-aligns: (
 }
 
 @each $hKey, $hExpressionMap in $h-aligns {
-  .flex-row.\:align-#{$hKey} {
+  .#{$row}.\:align-#{$hKey} {
     #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
   }
-  @each $name, $size in $responsive-map {
-    .flex-row.\:align-#{$hKey}-#{$name} {
+  @each $name, $size in map-get($responsive-map,$column-count) {
+    .#{$row}.\:align-#{$hKey}-#{$name} {
       @media #{$size} {
         #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
       }
@@ -80,11 +80,11 @@ $v-aligns: (
   }
 }
 @each $vKey, $vExpressionMap in $v-aligns {
-  .flex-row.\:align-#{$vKey} {
+  .#{$row}.\:align-#{$vKey} {
     #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
   }
-  @each $name, $size in $responsive-map {
-    .flex-row.\:align-#{$vKey}-#{$name} {
+  @each $name, $size in map-get($responsive-map,$column-count) {
+    .#{$row}.\:align-#{$vKey}-#{$name} {
       @media #{$size} {
         #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
       }

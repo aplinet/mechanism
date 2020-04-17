@@ -40,21 +40,14 @@ $responsive-map: (
   }
 }
 
-// @debug map-get($responsive-map, 'xxs');
-// @debug $responsive-map;
-
 // $row-name: 'row';
 .#{$row} {
   display: flex;
   flex-basis: 100%;
-  // margin-left: -8px;
-  // margin-right: -8px;
 }
 
 .#{$row} > * {
-  overflow: hidden;
   flex: 0 1 auto;
-  // padding: 2px 8px;
 }
 
 @import "row/align.scss";

@@ -1,28 +1,4 @@
 // SECTION: Columns
-// FEATURE: Auto columns
-
-// @for $i from 1 through $column-count {
-//   .#{$row}.\:auto-col-#{$i} > * {
-//     @media #{$pc-large} {
-//       $calculated-column-count: round($i * 4/6);
-//       @if $calculated-column-count > $column-count {
-//         $calculated-column-count: $column-count;
-//       }
-//       flex-basis: (100% / $column-count) * $calculated-column-count;
-//     }
-//     @media #{$pc},#{$large-tablet} {
-//       $calculated-column-count: $i;
-//       flex-basis: (100% / $column-count) * $calculated-column-count;
-//     }
-//     @media #{$large-tabletB} {
-//       $calculated-column-count: round($i * 12/6);
-//       @if $calculated-column-count > $column-count {
-//         $calculated-column-count: $column-count;
-//       }
-//       flex-basis: (100% / $column-count) * $calculated-column-count;
-//     }
-//   }
-// }
 
 @for $i from 1 through $column-count {
   .#{$row}.\:col-#{$i} > * {
@@ -41,6 +17,7 @@
     }
   }
 }
+// FEATURE: Mock device size
 
 @if $mock-media {
   @for $i from 1 through $column-count - 1 {
@@ -51,10 +28,6 @@
           @for $j from 1 through $column-count {
             .#{$row}.\:col-#{$j}-#{$name} > * {
               flex-basis: 100% / $column-count * $j;
-              &:before {
-                content: "#{$name}";
-                display: block;
-              }
             }
           }
         }
@@ -63,7 +36,6 @@
   }
 }
 
-// FEATURE: Mock device size
 
 // .#{$row}.\:col-#{$i} > * {
 //   flex-basis: 100% / $column-count * $i;

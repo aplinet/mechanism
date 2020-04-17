@@ -32,7 +32,7 @@
   }
 }
 
-@each $name, $size in map-get($responsive-map,$column-count) {
+@each $name, $size in $responsive-map {
   @media #{$size} {
     @for $i from 1 through $column-count {
       .#{$row} > .col-#{$i}-#{$name} {

@@ -3,17 +3,76 @@
 // @debug map.merge($font-weights, ("medium": 600));
 
 @function range-to-media-query($size) {
-  @if type-of(map-get($value, "min")) == "null" and type-of(map-get($value, "max")) == "number" {
+  @if type-of(map-get($size, "min")) == "null" and type-of(map-get($size, "max")) == "number" {
     // FEATURE: max only
-    @return "(max-width:" + map-get($value, "max") + ")";
-  } @else if type-of(map-get($value, "max")) == "null" and type-of(map-get($value, "min")) == "number" {
+    @return "(max-width:" + map-get($size, "max") + ")";
+  } @else if type-of(map-get($size, "max")) == "null" and type-of(map-get($size, "min")) == "number" {
     // FEATURE: min only
-    @return "(min-width:" + map-get($value, "min") + ")";
-  } @else if type-of(map-get($value, "max")) == "number" and type-of(map-get($value, "min")) == "number" {
+    @return "(min-width:" + map-get($size, "min") + ")";
+  } @else if type-of(map-get($size, "max")) == "number" and type-of(map-get($size, "min")) == "number" {
     // FEATURE: min and max
-    @return "(min-width:" + map-get($value, "min") + ")" +" and " +"(max-width:" + map-get($value, "max") + ")";
+    @return "(min-width:" + map-get($size, "min") + ")" +" and " +"(max-width:" + map-get($size, "max") + ")";
   }
 }
+@function generate-ranges($exacts) {
+  $result: ();
+  // $separator: list.separator($list);
+  @each $key, $value in $exacts {
+    @if type-of(map-get($value, "min")) == "null" and type-of(map-get($value, "max")) == "number" {
+      // FEATURE: max only
+      $max: map-get($value, "max");
+      $result: map.merge(
+        $result,
+        (
+          $key +
+            "\\+":
+            (
+              "min": $max
+            )
+        )
+      );
+    } @else if type-of(map-get($value, "max")) == "null" and type-of(map-get($value, "min")) == "number" {
+      // FEATURE: min only
+      $min: map-get($value, "min");
+      $result: map.merge(
+        $result,
+        (
+          $key +
+            "\\-":
+            (
+              "max": $min
+            )
+        )
+      );
+    } @else if type-of(map-get($value, "max")) == "number" and type-of(map-get($value, "min")) == "number" {
+      // FEATURE: min and max
+      $min: map-get($value, "min");
+      $max: map-get($value, "max");
+      $result: map.merge(
+        $result,
+        (
+          $key +
+            "\\+":
+            (
+              min: $max
+            )
+        )
+      );
+      $result: map.merge(
+        $result,
+        (
+          $key +
+            "\\-":
+            (
+              max: $min
+            )
+        )
+      );
+    }
+  }
+  @return $result;
+}
+
 @function ranges-to-media-map($sizes, $scale: 1) {
   $exact: ();
   $range: ();
@@ -57,4 +116,129 @@
     }
   }
   @return map.merge($range, $exact);
+}
+
+@function fit-in-size($size, $cap) {
+  $min1: map-get($size, "min");
+  $max1: map-get($size, "max");
+  $min2: map-get($cap, "min");
+  $max2: map-get($cap, "max");
+
+  // SECTION: A
+  @if type-of($min2) != "null" and type-of($max2) != "null" {
+    // FEATURE: 1
+    @if type-of($min1) == "null" and type-of($max1) != "null" and $max1> $min2 {
+      @return true;
+    }
+    // FEATURE: 2
+    @if type-of($min1) != "null" and type-of($max1) != "null" {
+      @if ($min1>= $min2 and $min1 <= $max2) or
+        ($max1 <= $max2 and $max1 >= $min2) or
+        ($min1 <= $min2 and $max1 >= $max2)
+      {
+        @return true;
+      }
+    }
+    // FEATURE: 3
+    @if type-of($min1) != "null" and type-of($max1) == "null" and $min1< $max2 {
+      @return true;
+    }
+  }
+  // SECTION: B
+  @if type-of($min2) != "null" and type-of($max2) == "null" {
+    // FEATURE: 1
+    @if type-of($min1) == "null" and type-of($max1) != "null" and $max1>= $min2 {
+      @return true;
+    }
+    // FEATURE: 2
+    @if type-of($min1) != "null" and type-of($max1) != "null" {
+      @if ($max1>= $min2) {
+        @return true;
+      }
+    }
+    // FEATURE: 3
+    @if type-of($min1) != "null" and type-of($max1) == "null" {
+      @return true;
+    }
+  }
+  // SECTION: C
+  @if type-of($min2) == "null" and type-of($max2) != "null" {
+    // FEATURE: 1
+    @if type-of($min1) == "null" and type-of($max1) != "null" {
+      @return true;
+    }
+    // FEATURE: 2
+    @if type-of($min1) != "null" and type-of($max1) != "null" {
+      @if ($min1<= $max2) {
+        @return true;
+      }
+    }
+    // FEATURE: 3
+    @if type-of($min1) != "null" and type-of($max1) == "null" and $min1 <= $max2 {
+      @return true;
+    }
+  }
+  @return false;
+}
+
+@function reverse($list, $recursive: false) {
+  $result: ();
+
+  @for $i from length($list) * -1 through -1 {
+    @if type-of(nth($list, abs($i))) == list and $recursive {
+      $result: append($result, reverse(nth($list, abs($i)), $recursive));
+    } @else {
+      $result: append($result, nth($list, abs($i)));
+    }
+  }
+
+  @return $result;
+}
+
+@function map-sort-by-values($map) {
+  // Transform map to zipped list
+  $keys: ();
+  $values: ();
+
+  @each $key, $val in $map {
+    $keys: append($keys, $key);
+    $values: append($values, $val);
+  }
+
+  $list: zip($keys, $values);
+
+  $sortedMap: ();
+  @while length($list) > 0 {
+    // Find smallest pair
+    $smallestPair: nth($list, 1);
+    @each $pair in $list {
+      $value: nth($pair, 2);
+      $smallestValue: nth($smallestPair, 2);
+      @if $value < $smallestValue {
+        $smallestPair: $pair;
+      }
+    }
+
+    // Add smallest pair to sorted map
+    $key: nth($smallestPair, 1);
+    $value: nth($smallestPair, 2);
+    $sortedMap: map-merge(
+      $sortedMap,
+      (
+        $key: $value
+      )
+    );
+
+    // Remove from list smallest pair
+    $smallestPairIndex: index($list, $smallestPair);
+    $newList: ();
+    @for $i from 1 through length($list) {
+      @if $i != $smallestPairIndex {
+        $newList: append($newList, nth($list, $i), "space");
+      }
+    }
+    $list: $newList;
+  }
+
+  @return $sortedMap;
 }

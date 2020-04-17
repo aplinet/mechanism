@@ -6,10 +6,10 @@
   }
 }
 
-// FEATURE: Specific columns
+// FEATURE: Ranges columns
 
-@each $name, $size in map-get($responsive-map, $column-count) {
-  @media #{$size} {
+@each $name, $size in $ranges {
+  @media #{range-to-media-query($size)} {
     @for $i from 1 through $column-count {
       .#{$row}.\:col-#{$i}-#{$name} > * {
         flex-basis: 100% / $column-count * $i;
@@ -17,17 +17,29 @@
     }
   }
 }
-// FEATURE: Mock device size
 
+// FEATURE: Exacts columns
+
+@each $name, $size in $exacts {
+  @media #{range-to-media-query($size)} {
+    @for $i from 1 through $column-count {
+      .#{$row}.\:col-#{$i}-#{$name} > * {
+        flex-basis: 100% / $column-count * $i;
+      }
+    }
+  }
+}
 @if $mock-media {
-  @for $i from 1 through $column-count - 1 {
-    $proportional-map: map-get($responsive-map, $i);
-    .\:media-col-#{$i} {
-      @each $name, $size in $proportional-map {
-        @media #{$size} {
-          @for $j from 1 through $column-count {
-            .#{$row}.\:col-#{$j}-#{$name} > * {
-              flex-basis: 100% / $column-count * $j;
+  @each $media-name, $media-size in $exacts {
+    .\:media-#{$media-name} {
+      @each $name, $size in $all {
+        @if $media-name== "md" {
+          @debug "=====" + $media-name + " : " + $name + " : " + fit-in-size($size, $media-size);
+        }
+        @if fit-in-size($size, $media-size) {
+          @for $i from 1 through $column-count {
+            .#{$row}.\:col-#{$i}-#{$name} > * {
+              flex-basis: 100% / $column-count * $i;
             }
           }
         }
@@ -35,7 +47,24 @@
     }
   }
 }
+// FEATURE: Mock device size
 
+// @if $mock-media {
+//   @for $i from 1 through $column-count - 1 {
+//     $proportional-map: map-get($responsive-map, $i);
+//     .\:media-col-#{$i} {
+//       @each $name, $size in $proportional-map {
+//         @media #{$size} {
+//           @for $j from 1 through $column-count {
+//             .#{$row}.\:col-#{$j}-#{$name} > * {
+//               flex-basis: 100% / $column-count * $j;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 // .#{$row}.\:col-#{$i} > * {
 //   flex-basis: 100% / $column-count * $i;

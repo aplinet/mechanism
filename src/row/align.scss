@@ -49,7 +49,7 @@ $v-aligns: (
       #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
     }
 
-    @each $name, $size in map-get($responsive-map,$column-count) {
+    @each $name, $size in $responsive-map {
       .#{$row}.\:align-#{$hKey}#{$vKey}-#{$name},
       .#{$row}.\:align-#{$vKey}#{$hKey}-#{$name} {
         @media #{$size} {
@@ -71,7 +71,7 @@ $v-aligns: (
   .#{$row}.\:align-#{$hKey} {
     #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
   }
-  @each $name, $size in map-get($responsive-map,$column-count) {
+  @each $name, $size in $responsive-map {
     .#{$row}.\:align-#{$hKey}-#{$name} {
       @media #{$size} {
         #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
@@ -83,7 +83,7 @@ $v-aligns: (
   .#{$row}.\:align-#{$vKey} {
     #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
   }
-  @each $name, $size in map-get($responsive-map,$column-count) {
+  @each $name, $size in $responsive-map {
     .#{$row}.\:align-#{$vKey}-#{$name} {
       @media #{$size} {
         #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};

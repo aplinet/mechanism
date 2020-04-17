@@ -60,7 +60,7 @@
   align-items: flex-end;
 }
 
-@each $name, $size in map-get($responsive-map,$column-count) {
+@each $name, $size in $responsive-map {
   .#{$row} > .align-lt-#{$name},
   .#{$row} > .align-tl-#{$name} {
     @media #{$size} {

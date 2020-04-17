@@ -2,43 +2,31 @@
 @import "function.scss";
 @import "config.scss";
 
-$ranges: (
+$exacts: (
   "lg": (
-    min: 1200px
+    min: 1201px
   ),
   "md": (
-    min: 992px,
+    min: 993px,
     max: 1200px
   ),
   "sm": (
-    min: 768px,
+    min: 769px,
     max: 992px
   ),
   "xs": (
-    min: 479px,
+    min: 481px,
     max: 768px
   ),
   "xxs": (
-    max: 479px
+    max: 480px
   )
 );
+$ranges: generate-ranges($exacts);
+$all: map.merge($ranges, $exacts);
 $column-count: 12;
 
-$responsive-map: (
-  $column-count: ranges-to-media-map($ranges)
-);
-
-@if ($mock-media) {
-  @for $i from 1 through $column-count - 1 {
-    $scale: $i / $column-count;
-    $responsive-map: map.merge(
-      $responsive-map,
-      (
-        $i: ranges-to-media-map($ranges, 1 / $scale)
-      )
-    );
-  }
-}
+$responsive-map: ranges-to-media-map($all);
 
 // $row-name: 'row';
 .#{$row} {

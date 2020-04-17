@@ -34,7 +34,7 @@
   }
 }
 
-@each $name, $size in map-get($responsive-map,$column-count) {
+@each $name, $size in $responsive-map {
   .#{$row}.\:grow-#{$name} > * {
     @media #{$size} {
       flex-grow: 1;

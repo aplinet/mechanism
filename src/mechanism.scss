@@ -22,13 +22,6 @@ $ranges: (
 );
 $column-count: 12;
 
-@for $i from 1 through $column-count {
-  .\:media-col-#{$i} {
-    $proportion: $i / $column-count;
-    @debug $proportion;
-  }
-}
-
 $responsive-map: ranges-to-media-map($ranges);
 // @debug map-get($responsive-map, 'xxs');
 // @debug $responsive-map;

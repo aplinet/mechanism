@@ -29,13 +29,12 @@
     }
   }
 }
+// FEATURE: Mock device size
+
 @if $mock-media {
   @each $media-name, $media-size in $exacts {
     .\:media-#{$media-name} {
       @each $name, $size in $all {
-        @if $media-name== "md" {
-          @debug "=====" + $media-name + " : " + $name + " : " + fit-in-size($size, $media-size);
-        }
         @if fit-in-size($size, $media-size) {
           @for $i from 1 through $column-count {
             .#{$row}.\:col-#{$i}-#{$name} > * {
@@ -47,7 +46,6 @@
     }
   }
 }
-// FEATURE: Mock device size
 
 // @if $mock-media {
 //   @for $i from 1 through $column-count - 1 {

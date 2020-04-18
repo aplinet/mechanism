@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mechanism</title>
+  <link rel="stylesheet" href="../src/mechanism.scss">
+  <link rel="stylesheet" href="index.scss">
+</head>
+
+<body>
+  <section class="container">
+    <h2>Row</h2>
+    </hr>
+    <h3>Basic</h3>
+    <div class="r :w :c-12">
+      <div>:c-12</div>
+    </div>
+    <div class="r :w :c-6">
+      <div>:c-6</div>
+      <div>:c-6</div>
+    </div>
+    <div class="r :w :c-4">
+      <div>:c-4</div>
+      <div>:c-4</div>
+      <div>:c-4</div>
+    </div>
+    <div class="r :w :c-3">
+      <div>:c-3</div>
+      <div>:c-3</div>
+      <div>:c-3</div>
+      <div>:c-3</div>
+    </div>
+    <div class="r :w :c-2">
+      <div>:c-2</div>
+      <div>:c-2</div>
+      <div>:c-2</div>
+      <div>:c-2</div>
+      <div>:c-2</div>
+      <div>:c-2</div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h3>Responsive</h3>
+    <h4>Exact</h4>
+    <div class="r :w :c-6 :c-12-xxs">
+      <div>:c-6 :c-12-xxs</div>
+      <div>:c-6 :c-12-xxs</div>
+    </div>
+    <div class="r :w :c-4 :c-6-sm :c-12-xxs :c-12-xs">
+      <div>:c-4 :c-6-sm :c-12-xxs :c-12-xs</div>
+      <div>:c-4 :c-6-sm :c-12-xxs :c-12-xs</div>
+      <div>:c-4 :c-6-sm :c-12-xxs :c-12-xs</div>
+    </div>
+    <h4>Range</h4>
+    <div class="r :w :c-12 :c-4-sm+">
+      <div>:c-12 :c-4-sm+</div>
+      <div>:c-12 :c-4-sm+</div>
+      <div>:c-12 :c-4-sm+</div>
+    </div>
+  </section>
+  <section class="container">
+    <h3>Mock media size</h3>
+    <div class="r :c-6 :c-4-md">
+      <div class=":m-xxs :m-sm-lg">
+        :m-xxs :m-sm-lg
+        <div class="r :w :c-2 :c-4-md :c-6-sm :c-12-xxs">
+          <div>r :w :c-2 :c-4-md :c-6-sm :c-12-xxs</div>
+          <div>r :w :c-2 :c-4-md :c-6-sm :c-12-xxs</div>
+          <div>r :w :c-2 :c-4-md :c-6-sm :c-12-xxs</div>
+        </div>
+      </div>
+      <div>
+        none
+        <div class="r :w :c-2 :c-4-md :c-6-sm :c-12-xxs">
+          <div>r :w :c-2 :c-4-md :c-6-sm :c-12-xxs</div>
+          <div>r :w :c-2 :c-4-md :c-6-sm :c-12-xxs</div>
+          <div>r :w :c-2 :c-4-md :c-6-sm :c-12-xxs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <h3>Aligns</h3>
+    <div class="r :w :c-4 :a-ba" style="height:8em; border:1px solid red;">
+      <div>r :w :c-4 :a-ba</div>
+      <div>r :w :c-4 :a-ba</div>
+      <div>r :w :c-4 :a-ba</div>
+      <div>r :w :c-4 :a-ba</div>
+      <div>r :w :c-4 :a-ba</div>
+    </div>
+  </section>
+  <section class="container">
+    <h2>Mock device size</h2>
+    <div class=":m-sm :m-xs-lg">
+      <div class="r :w :c-4 :a-a-sm :a-cr-xs" style="height:8em; border:1px solid red;">
+        <div>r :w :c-4 :a-ba</div>
+        <div>r :w :c-4 :a-ba</div>
+        <div>r :w :c-4 :a-ba</div>
+        <div>r :w :c-4 :a-ba</div>
+        <div>r :w :c-4 :a-ba</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2>Children</h2>
+    </hr>
+    <h3>Basic</h3>
+    <div class="r">
+      <div class="c-12">c-12</div>
+    </div>
+    <div class="r :w">
+      <div class="c-6"></div>
+      <div class="c-6"></div>
+    </div>
+    <div class="r :w">
+      <div class="c-4">c-4</div>
+      <div class="c-4">c-4</div>
+      <div class="c-4">c-4</div>
+    </div>
+    <div class="r :w">
+      <div class="c-3">c-3</div>
+      <div class="c-3">c-3</div>
+      <div class="c-3">c-3</div>
+      <div class="c-3">c-3</div>
+    </div>
+    <div class="r :w">
+      <div class="c-2">c-2</div>
+      <div class="c-2">c-2</div>
+      <div class="c-2">c-2</div>
+      <div class="c-2">c-2</div>
+      <div class="c-2">c-2</div>
+      <div class="c-2">c-2</div>
+    </div>
+  </section>
+  <section class="container">
+    <h3>Responsive</h3>
+    <h4>Exact</h4>
+    <div class="r :w ">
+      <div class="c-6 c-12-xxs">c-6 c-12-xxs</div>
+      <div class="c-6 c-12-xxs">c-6 c-12-xxs</div>
+    </div>
+    <div class="r :w ">
+      <div class="c-4 c-6-sm c-12-xxs c-12-xs">c-4 c-6-sm c-12-xxs c-12-xs</div>
+      <div class="c-4 c-6-sm c-12-xxs c-12-xs">c-4 c-6-sm c-12-xxs c-12-xs</div>
+      <div class="c-4 c-6-sm c-12-xxs c-12-xs">c-4 c-6-sm c-12-xxs c-12-xs</div>
+    </div>
+    <h4>Range</h4>
+    <div class="r :w">
+      <div class="c-12 c-4-sm+">c-12 c-4-sm+</div>
+      <div class="c-12 c-4-sm+">c-12 c-4-sm+</div>
+      <div class="c-12 c-4-sm+">c-12 c-4-sm+</div>
+    </div>
+  </section>
+  <section class="container">
+    <h3>Mock media size</h3>
+    <div class="r :c-6 :c-4-md">
+      <div class=":m-xxs :m-sm-lg">
+        :m-xxs :m-sm-lg
+        <div class="r :w">
+          <div class="c-2 c-4-md c-6-sm c-12-xxs">c-2 c-4-md c-6-sm c-12-xxs</div>
+          <div class="c-2 c-4-md c-6-sm c-12-xxs">c-2 c-4-md c-6-sm c-12-xxs</div>
+          <div class="c-2 c-4-md c-6-sm c-12-xxs">c-2 c-4-md c-6-sm c-12-xxs</div>
+        </div>
+      </div>
+      <div>
+        none
+        <div class="r :w">
+          <div class="c-2 c-4-md c-6-sm c-12-xxs">c-2 c-4-md c-6-sm c-12-xxs</div>
+          <div class="c-2 c-4-md c-6-sm c-12-xxs">c-2 c-4-md c-6-sm c-12-xxs</div>
+          <div class="c-2 c-4-md c-6-sm c-12-xxs">c-2 c-4-md c-6-sm c-12-xxs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

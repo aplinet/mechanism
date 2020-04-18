@@ -48,17 +48,17 @@ $v-aligns: (
 @each $hKey, $hExpressionMap in $h-aligns {
   @each $vKey, $vExpressionMap in $v-aligns {
     @if $hKey != "null" and $vKey != "null" {
-      .#{$row}.\:align-#{$hKey}#{$vKey},
-      .#{$row}.\:align-#{$vKey}#{$hKey} {
+      .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$vKey},
+      .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$hKey} {
         #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
         #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
       }
     } @else if $hKey == "null" and $vKey != "null" {
-      .#{$row}.\:align-#{$vKey} {
+      .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey} {
         #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
       }
     } @else if $hKey!= "null" and $vKey == "null" {
-      .#{$row}.\:align-#{$hKey} {
+      .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey} {
         #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
       }
     }
@@ -71,17 +71,17 @@ $v-aligns: (
     @each $hKey, $hExpressionMap in $h-aligns {
       @each $vKey, $vExpressionMap in $v-aligns {
         @if $hKey != "null" and $vKey != "null" {
-          .#{$row}.\:align-#{$hKey}#{$vKey}-#{$name},
-          .#{$row}.\:align-#{$vKey}#{$hKey}-#{$name} {
+          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$vKey}-#{$name},
+          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$hKey}-#{$name} {
             #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
             #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
           }
         } @else if $hKey == "null" and $vKey != "null" {
-          .#{$row}.\:align-#{$vKey}-#{$name} {
+          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}-#{$name} {
             #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
           }
         } @else if $hKey!= "null" and $vKey == "null" {
-          .#{$row}.\:align-#{$hKey}-#{$name} {
+          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}-#{$name} {
             #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
           }
         }
@@ -94,24 +94,24 @@ $v-aligns: (
 
 @if $mock-media {
   @each $media-name, $media-size in $exacts {
-    .\:media-#{$media-name} {
+    .\:#{map-get($dictionary,"media")}-#{$media-name} {
       @each $name, $size in $all {
         @if fit-in-size($size, $media-size) {
           // Here
           @each $hKey, $hExpressionMap in $h-aligns {
             @each $vKey, $vExpressionMap in $v-aligns {
               @if $hKey != "null" and $vKey != "null" {
-                .#{$row}.\:align-#{$hKey}#{$vKey}-#{$name},
-                .#{$row}.\:align-#{$vKey}#{$hKey}-#{$name} {
+                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$vKey}-#{$name},
+                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$hKey}-#{$name} {
                   #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
                   #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
                 }
               } @else if $hKey == "null" and $vKey != "null" {
-                .#{$row}.\:align-#{$vKey}-#{$name} {
+                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}-#{$name} {
                   #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
                 }
               } @else if $hKey!= "null" and $vKey == "null" {
-                .#{$row}.\:align-#{$hKey}-#{$name} {
+                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}-#{$name} {
                   #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
                 }
               }
@@ -129,24 +129,24 @@ $v-aligns: (
   @each $name, $size in $all {
     @media #{range-to-media-query($size)} {
       @each $media-name, $media-size in $exacts {
-        .\:media-#{$media-name}-#{$name} {
+        .\:#{map-get($dictionary,"media")}-#{$media-name}-#{$name} {
           @each $name, $size in $all {
             @if fit-in-size($size, $media-size) {
               // Here
               @each $hKey, $hExpressionMap in $h-aligns {
                 @each $vKey, $vExpressionMap in $v-aligns {
                   @if $hKey != "null" and $vKey != "null" {
-                    .#{$row}.\:align-#{$hKey}#{$vKey}-#{$name},
-                    .#{$row}.\:align-#{$vKey}#{$hKey}-#{$name} {
+                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$vKey}-#{$name},
+                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$hKey}-#{$name} {
                       #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
                       #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
                     }
                   } @else if $hKey == "null" and $vKey != "null" {
-                    .#{$row}.\:align-#{$vKey}-#{$name} {
+                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}-#{$name} {
                       #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
                     }
                   } @else if $hKey!= "null" and $vKey == "null" {
-                    .#{$row}.\:align-#{$hKey}-#{$name} {
+                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}-#{$name} {
                       #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
                     }
                   }

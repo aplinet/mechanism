@@ -2,22 +2,22 @@
 // TODO: generate modifiers with a list for ease of extension
 // FEATURE: Child - Global modifiers
 
-.#{$row} > .grow {
+.#{map-get($dictionary,"row")} > .#{map-get($dictionary,"grow")} {
   flex-grow: 1;
 }
-.#{$row} > .\!grow {
+.#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"grow")} {
   flex-grow: 0;
 }
-.#{$row} > .shrink {
+.#{map-get($dictionary,"row")} > .#{map-get($dictionary,"shrink")} {
   flex-shrink: 1;
 }
-.#{$row} > .\!shrink {
+.#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")} {
   flex-shrink: 0;
 }
-.#{$row} > .padding {
+.#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")} {
   padding: 2px 8px;
 }
-.#{$row} > .\!padding {
+.#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")} {
   padding: 0;
 }
 
@@ -25,22 +25,22 @@
 
 @each $name, $size in $all {
   @media #{range-to-media-query($size)} {
-    .#{$row} > .grow-#{$name} {
+    .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"grow")}-#{$name} {
       flex-grow: 1;
     }
-    .#{$row} > .\!grow-#{$name} {
+    .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"grow")}-#{$name} {
       flex-grow: 0;
     }
-    .#{$row} > .shrink-#{$name} {
+    .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"shrink")}-#{$name} {
       flex-shrink: 1;
     }
-    .#{$row} > .\!shrink-#{$name} {
+    .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}-#{$name} {
       flex-shrink: 0;
     }
-    .#{$row} > .padding-#{$name} {
+    .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}-#{$name} {
       padding: 2px 8px;
     }
-    .#{$row} > .\!padding-#{$name} {
+    .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}-#{$name} {
       padding: 0;
     }
   }
@@ -54,28 +54,22 @@
       @each $name, $size in $all {
         @if fit-in-size($size, $media-size) {
           // Here
-          .#{$row} > .grow-#{$name} {
+          .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"grow")}-#{$name} {
             flex-grow: 1;
           }
-          .#{$row} > .\!grow-#{$name} {
+          .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"grow")}-#{$name} {
             flex-grow: 0;
           }
-          .#{$row} > .shrink-#{$name} {
+          .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"shrink")}-#{$name} {
             flex-shrink: 1;
           }
-          .#{$row} > .\!shrink-#{$name} {
+          .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}-#{$name} {
             flex-shrink: 0;
           }
-          .#{$row} > .shrink-#{$name} {
-            flex-shrink: 1;
-          }
-          .#{$row} > .\!shrink-#{$name} {
-            flex-shrink: 0;
-          }
-          .#{$row} > .padding-#{$name} {
+          .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}-#{$name} {
             padding: 2px 8px;
           }
-          .#{$row} > .\!padding-#{$name} {
+          .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}-#{$name} {
             padding: 0;
           }
           // endHere
@@ -94,22 +88,22 @@
           @each $name, $size in $all {
             @if fit-in-size($size, $media-size) {
               // Here
-              .#{$row} > .grow-#{$name} {
+              .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"grow")}-#{$name} {
                 flex-grow: 1;
               }
-              .#{$row} > .\!grow-#{$name} {
+              .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"grow")}-#{$name} {
                 flex-grow: 0;
               }
-              .#{$row} > .shrink-#{$name} {
+              .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"shrink")}-#{$name} {
                 flex-shrink: 1;
               }
-              .#{$row} > .\!shrink-#{$name} {
+              .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}-#{$name} {
                 flex-shrink: 0;
               }
-              .#{$row} > .padding-#{$name} {
+              .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}-#{$name} {
                 padding: 2px 8px;
               }
-              .#{$row} > .\!padding-#{$name} {
+              .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}-#{$name} {
                 padding: 0;
               }
 

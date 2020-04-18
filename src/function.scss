@@ -1,7 +1,3 @@
-@use "sass:map";
-
-// @debug map.merge($font-weights, ("medium": 600));
-
 @function range-to-media-query($size) {
   @if type-of(map-get($size, "min")) == "null" and type-of(map-get($size, "max")) == "number" {
     // FEATURE: max only
@@ -21,7 +17,7 @@
     @if type-of(map-get($value, "min")) == "null" and type-of(map-get($value, "max")) == "number" {
       // FEATURE: max only
       $max: map-get($value, "max");
-      $result: map.merge(
+      $result: map-merge(
         $result,
         (
           $key +
@@ -34,7 +30,7 @@
     } @else if type-of(map-get($value, "max")) == "null" and type-of(map-get($value, "min")) == "number" {
       // FEATURE: min only
       $min: map-get($value, "min");
-      $result: map.merge(
+      $result: map-merge(
         $result,
         (
           $key +
@@ -48,7 +44,7 @@
       // FEATURE: min and max
       $min: map-get($value, "min");
       $max: map-get($value, "max");
-      $result: map.merge(
+      $result: map-merge(
         $result,
         (
           $key +
@@ -58,7 +54,7 @@
             )
         )
       );
-      $result: map.merge(
+      $result: map-merge(
         $result,
         (
           $key +
@@ -96,40 +92,40 @@
     @if type-of(map-get($value, "min")) == "null" and type-of(map-get($value, "max")) == "number" {
       // FEATURE: max only
       $max: map-get($value, "max") * $scale;
-      $exact: map.merge(
+      $exact: map-merge(
         $exact,
         (
           $key: "(max-width:" + $max + ")"
         )
       );
-      $range: map.merge($range, ($key + "\\+": "(min-width:" + $max + ")"));
+      $range: map-merge($range, ($key + "\\+": "(min-width:" + $max + ")"));
     } @else if type-of(map-get($value, "max")) == "null" and type-of(map-get($value, "min")) == "number" {
       // FEATURE: min only
       $min: map-get($value, "min") * $scale;
 
-      $exact: map.merge(
+      $exact: map-merge(
         $exact,
         (
           $key: "(min-width:" + $min + ")"
         )
       );
-      $range: map.merge($range, ($key + "\\-": "(max-width:" + $min + ")"));
+      $range: map-merge($range, ($key + "\\-": "(max-width:" + $min + ")"));
     } @else if type-of(map-get($value, "max")) == "number" and type-of(map-get($value, "min")) == "number" {
       // FEATURE: min and max
       $min: map-get($value, "min") * $scale;
       $max: map-get($value, "max") * $scale;
 
-      $exact: map.merge(
+      $exact: map-merge(
         $exact,
         (
           $key: "(min-width:" + $min + ")" +" and " +"(max-width:" + $max + ")"
         )
       );
-      $range: map.merge($range, ($key + "\\+": "(min-width:" + $max + ")"));
-      $range: map.merge($range, ($key + "\\-": "(max-width:" + $min + ")"));
+      $range: map-merge($range, ($key + "\\+": "(min-width:" + $max + ")"));
+      $range: map-merge($range, ($key + "\\-": "(max-width:" + $min + ")"));
     }
   }
-  @return map.merge($range, $exact);
+  @return map-merge($range, $exact);
 }
 
 @function fit-in-size($size, $cap) {

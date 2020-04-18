@@ -5,6 +5,7 @@
   "main": "demo/index.html",
   "scripts": {
     "start": "node ./node_modules/parcel-bundler/bin/cli demo/index.html",
+    "nano": "node ./node_modules/parcel-bundler/bin/cli demo/nano-index.html",
     "build": "node ./node_modules/parcel-bundler/bin/cli build demo/index.html",
     "checksize": "gzip -c dist/mechanism.css | wc -c",
     "test": "echo \"Error: no test specified\" && exit 1"

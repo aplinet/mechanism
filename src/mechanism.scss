@@ -1,4 +1,3 @@
-@use "sass:map";
 @import "function.scss";
 @import "config.scss";
 
@@ -27,16 +26,16 @@ $column-count: 12;
 
 @if $ranges {
   $ranges: generate-ranges($exacts);
-  $all: map.merge($ranges, $exacts);
+  $all: map-merge($ranges, $exacts);
 }
 
 // $row-name: 'row';
-.#{$row} {
+.#{map-get($dictionary,"row")} {
   display: flex;
   flex-basis: 100%;
 }
 
-.#{$row} > * {
+.#{map-get($dictionary,"row")} > * {
   flex: 0 1 auto;
 }
 

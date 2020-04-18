@@ -22,11 +22,13 @@ $exacts: (
     max: 480px
   )
 );
-$ranges: generate-ranges($exacts);
-$all: map.merge($ranges, $exacts);
+$all: $exacts;
 $column-count: 12;
 
-$responsive-map: ranges-to-media-map($all);
+@if $ranges {
+  $ranges: generate-ranges($exacts);
+  $all: map.merge($ranges, $exacts);
+}
 
 // $row-name: 'row';
 .#{$row} {
@@ -38,9 +40,18 @@ $responsive-map: ranges-to-media-map($all);
   flex: 0 1 auto;
 }
 
+@if $css-custom-properties {
+  :root {
+    @for $i from 1 through $column-count {
+      $value: 100% / $column-count * $i;
+      --c-#{$i}: #{$value};
+    }
+  }
+}
+
 @import "row/align.scss";
 @import "row/modifier.scss";
 @import "row/column.scss";
 @import "child/align.scss";
-@import "child/modifier.scss";
+@import "child/modifier.scss"; // TODO:
 @import "child/column.scss";

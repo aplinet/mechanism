@@ -1,42 +1,58 @@
+// SECTION: Children columns
 
-// FEATURE: Child - Auto columns
-
-// @for $i from 1 through $column-count {
-//   .#{$row} > .auto-col-#{$i} {
-//     @media #{$pc-large} {
-//       $calculated-column-count: round($i * 4/6);
-//       @if $calculated-column-count > $column-count {
-//         $calculated-column-count: $column-count;
-//       }
-//       flex-basis: (100% / $column-count) * $calculated-column-count;
-//     }
-//     @media #{$pc},#{$large-tablet} {
-//       $calculated-column-count: $i;
-//       flex-basis: (100% / $column-count) * $calculated-column-count;
-//     }
-//     @media #{$large-tabletB} {
-//       $calculated-column-count: round($i * 12/6);
-//       @if $calculated-column-count > $column-count {
-//         $calculated-column-count: $column-count;
-//       }
-//       flex-basis: (100% / $column-count) * $calculated-column-count;
-//     }
-//   }
-// }
-
-// FEATURE: Child - Specific columns
-
+// FEATURE: Global children columns
 @for $i from 1 through $column-count {
   .#{$row} > .col-#{$i} {
     flex-basis: 100% / $column-count * $i;
   }
 }
 
-@each $name, $size in $responsive-map {
-  @media #{$size} {
+// FEATURE: Media query children columns
+
+@each $name, $size in $all {
+  @media #{range-to-media-query($size)} {
     @for $i from 1 through $column-count {
       .#{$row} > .col-#{$i}-#{$name} {
         flex-basis: 100% / $column-count * $i;
+      }
+    }
+  }
+}
+
+// FEATURE: Mock device children columns
+
+@if $mock-media {
+  @each $media-name, $media-size in $exacts {
+    .\:media-#{$media-name} {
+      @each $name, $size in $all {
+        @if fit-in-size($size, $media-size) {
+          @for $i from 1 through $column-count {
+            .#{$row} > .col-#{$i}-#{$name} {
+              flex-basis: 100% / $column-count * $i;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// FEATURE: Media query mock device children columns
+@each $name, $size in $all {
+  @media #{range-to-media-query($size)} {
+    @if $mock-media {
+      @each $media-name, $media-size in $exacts {
+        .\:media-#{$media-name}-#{$name} {
+          @each $name, $size in $all {
+            @if fit-in-size($size, $media-size) {
+              @for $i from 1 through $column-count {
+                .#{$row} > .col-#{$i}-#{$name} {
+                  flex-basis: 100% / $column-count * $i;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

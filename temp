@@ -1,0 +1,20 @@
+       $key: 100% / $column-count * $i;
+            $query: "." + $row + ".\\:col-"+ $i + "-" + $name + " > *";
+            
+ @if map.has-key($queries, $key) {
+              $queries: map.merge(
+                $queries,
+                (
+                  $key: append(map-get($queries, $key), $query, $separator: auto)
+                )
+              );
+            } @else {
+              $queries: map.merge(
+                $queries,
+                (
+                  $key: (
+                    $query
+                  )
+                )
+              );
+            }

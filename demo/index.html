@@ -11,9 +11,10 @@
 </head>
 
 <body>
-
   <section class="container">
-    <h2>Basic</h2>
+    <h2>Row</h2>
+    </hr>
+    <h3>Basic</h3>
     <div class="row :wrap :col-12">
       <div>:col-12</div>
     </div>
@@ -41,9 +42,10 @@
       <div>:col-2</div>
     </div>
   </section>
+
   <section class="container">
-    <h2>Responsive</h2>
-    <h3>Exact</h3>
+    <h3>Responsive</h3>
+    <h4>Exact</h4>
     <div class="row :wrap :col-6 :col-12-xxs">
       <div>:col-6 :col-12-xxs</div>
       <div>:col-6 :col-12-xxs</div>
@@ -53,8 +55,7 @@
       <div>:col-4 :col-6-sm :col-12-xxs :col-12-xs</div>
       <div>:col-4 :col-6-sm :col-12-xxs :col-12-xs</div>
     </div>
-
-    <h3>Range</h3>
+    <h4>Range</h4>
     <div class="row :wrap :col-12 :col-4-sm+">
       <div>:col-12 :col-4-sm+</div>
       <div>:col-12 :col-4-sm+</div>
@@ -62,22 +63,116 @@
     </div>
   </section>
   <section class="container">
-    <h2>Fake device size</h2>
+    <h3>Mock media size</h3>
     <div class="row :col-6 :col-4-md">
-      <div class=":media-md">
-        :media-md
-        <div class="row :wrap :col-2 :col-4-md :col-6-sm :col-6-sm-">
-          <div>:col-2 :col-4-md :col-6-sm :col-12-xxs :col-12-xs</div>
-          <div>:col-2 :col-4-md :col-6-sm :col-12-xxs :col-12-xs</div>
-          <div>:col-2 :col-4-md :col-6-sm :col-12-xxs :col-12-xs</div>
+      <div class=":media-xxs :media-sm-lg">
+          :media-xxs :media-sm-lg
+        <div class="row :wrap :col-2 :col-4-md :col-6-sm :col-12-xxs">
+          <div>row :wrap :col-2 :col-4-md :col-6-sm :col-12-xxs</div>
+          <div>row :wrap :col-2 :col-4-md :col-6-sm :col-12-xxs</div>
+          <div>row :wrap :col-2 :col-4-md :col-6-sm :col-12-xxs</div>
         </div>
       </div>
       <div>
         none
-        <div class="row :wrap :col-2 :col-4-md :col-6-sm :col-6-sm-">
-          <div>:col-2 :col-4-md :col-6-sm :col-12-xxs :col-12-xs</div>
-          <div>:col-2 :col-4-md :col-6-sm :col-12-xxs :col-12-xs</div>
-          <div>:col-2 :col-4-md :col-6-sm :col-12-xxs :col-12-xs</div>
+        <div class="row :wrap :col-2 :col-4-md :col-6-sm :col-12-xxs">
+          <div>row :wrap :col-2 :col-4-md :col-6-sm :col-12-xxs</div>
+          <div>row :wrap :col-2 :col-4-md :col-6-sm :col-12-xxs</div>
+          <div>row :wrap :col-2 :col-4-md :col-6-sm :col-12-xxs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <h3>Aligns</h3>
+    <div class="row :wrap :col-4 :align-ba" style="height:8em; border:1px solid red;">
+      <div>row :wrap :col-4 :align-ba</div>
+      <div>row :wrap :col-4 :align-ba</div>
+      <div>row :wrap :col-4 :align-ba</div>
+      <div>row :wrap :col-4 :align-ba</div>
+      <div>row :wrap :col-4 :align-ba</div>
+    </div>
+  </section>
+  <section class="container">
+    <h2>Mock device size</h2>
+    <div class=":media-sm :media-xs-lg">
+      <div class="row :wrap :col-4 :align-a-sm :align-cr-xs" style="height:8em; border:1px solid red;">
+        <div>row :wrap :col-4 :align-ba</div>
+        <div>row :wrap :col-4 :align-ba</div>
+        <div>row :wrap :col-4 :align-ba</div>
+        <div>row :wrap :col-4 :align-ba</div>
+        <div>row :wrap :col-4 :align-ba</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2>Children</h2>
+    </hr>
+    <h3>Basic</h3>
+    <div class="row">
+      <div class="col-12">col-12</div>
+    </div>
+    <div class="row :wrap">
+      <div class="col-6"></div>
+      <div class="col-6"></div>
+    </div>
+    <div class="row :wrap">
+      <div class="col-4">col-4</div>
+      <div class="col-4">col-4</div>
+      <div class="col-4">col-4</div>
+    </div>
+    <div class="row :wrap">
+      <div class="col-3">col-3</div>
+      <div class="col-3">col-3</div>
+      <div class="col-3">col-3</div>
+      <div class="col-3">col-3</div>
+    </div>
+    <div class="row :wrap">
+      <div class="col-2">col-2</div>
+      <div class="col-2">col-2</div>
+      <div class="col-2">col-2</div>
+      <div class="col-2">col-2</div>
+      <div class="col-2">col-2</div>
+      <div class="col-2">col-2</div>
+    </div>
+  </section>
+  <section class="container">
+    <h3>Responsive</h3>
+    <h4>Exact</h4>
+    <div class="row :wrap ">
+      <div class="col-6 col-12-xxs">col-6 col-12-xxs</div>
+      <div class="col-6 col-12-xxs">col-6 col-12-xxs</div>
+    </div>
+    <div class="row :wrap ">
+      <div class="col-4 col-6-sm col-12-xxs col-12-xs">col-4 col-6-sm col-12-xxs col-12-xs</div>
+      <div class="col-4 col-6-sm col-12-xxs col-12-xs">col-4 col-6-sm col-12-xxs col-12-xs</div>
+      <div class="col-4 col-6-sm col-12-xxs col-12-xs">col-4 col-6-sm col-12-xxs col-12-xs</div>
+    </div>
+    <h4>Range</h4>
+    <div class="row :wrap">
+      <div class="col-12 col-4-sm+">col-12 col-4-sm+</div>
+      <div class="col-12 col-4-sm+">col-12 col-4-sm+</div>
+      <div class="col-12 col-4-sm+">col-12 col-4-sm+</div>
+    </div>
+  </section>
+  <section class="container">
+    <h3>Mock media size</h3>
+    <div class="row :col-6 :col-4-md">
+      <div class=":media-xxs :media-sm-lg">
+          :media-xxs :media-sm-lg
+        <div class="row :wrap">
+          <div class="col-2 col-4-md col-6-sm col-12-xxs">col-2 col-4-md col-6-sm col-12-xxs</div>
+          <div class="col-2 col-4-md col-6-sm col-12-xxs">col-2 col-4-md col-6-sm col-12-xxs</div>
+          <div class="col-2 col-4-md col-6-sm col-12-xxs">col-2 col-4-md col-6-sm col-12-xxs</div>
+        </div>
+      </div>
+      <div>
+        none
+        <div class="row :wrap">
+          <div class="col-2 col-4-md col-6-sm col-12-xxs">col-2 col-4-md col-6-sm col-12-xxs</div>
+          <div class="col-2 col-4-md col-6-sm col-12-xxs">col-2 col-4-md col-6-sm col-12-xxs</div>
+          <div class="col-2 col-4-md col-6-sm col-12-xxs">col-2 col-4-md col-6-sm col-12-xxs</div>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
 // SECTION: Row modifiers
 
-
 .#{$row}.margined {
   margin-top: 0.8em;
   margin-bottom: 0.8em;
@@ -10,13 +9,11 @@
   padding-bottom: 0.8em;
 }
 
-
 // FEATURE: Shrink & grow
 
 .#{$row}.\:grow > * {
   flex-grow: 1;
 }
-
 .#{$row}.\:\!grow > * {
   flex-grow: 0;
 }
@@ -34,32 +31,94 @@
   }
 }
 
-@each $name, $size in $responsive-map {
-  .#{$row}.\:grow-#{$name} > * {
-    @media #{$size} {
+@each $name, $size in $all {
+  @media #{range-to-media-query($size)} {
+    .#{$row}.\:grow-#{$name} > * {
       flex-grow: 1;
     }
-  }
-  .#{$row}.\:\!grow-#{$name} > * {
-    @media #{$size} {
+    .#{$row}.\:\!grow-#{$name} > * {
       flex-grow: 0;
     }
-  }
-  .#{$row}.\:shrink-#{$name} > * {
-    @media #{$size} {
+    .#{$row}.\:shrink-#{$name} > * {
       flex-shrink: 1;
     }
-  }
-  .#{$row}.\:\!shrink-#{$name} > * {
-    @media #{$size} {
+    .#{$row}.\:\!shrink-#{$name} > * {
       flex-shrink: 0;
     }
-  }
-  .#{$row}.\:wrap-#{$name} {
-    @media #{$size} {
+    .#{$row}.\:wrap-#{$name} {
       flex-wrap: wrap;
       > * {
         flex-shrink: 0;
+      }
+    }
+  }
+}
+
+// FEATURE: Mock device columns
+
+@if $mock-media {
+  @each $media-name, $media-size in $exacts {
+    .\:media-#{$media-name} {
+      @each $name, $size in $all {
+        @if fit-in-size($size, $media-size) {
+          // Here
+          .#{$row}.\:grow-#{$name} > * {
+            flex-grow: 1;
+          }
+          .#{$row}.\:\!grow-#{$name} > * {
+            flex-grow: 0;
+          }
+          .#{$row}.\:shrink-#{$name} > * {
+            flex-shrink: 1;
+          }
+          .#{$row}.\:\!shrink-#{$name} > * {
+            flex-shrink: 0;
+          }
+          .#{$row}.\:wrap-#{$name} {
+            flex-wrap: wrap;
+            > * {
+              flex-shrink: 0;
+            }
+          }
+          // endHere
+        }
+      }
+    }
+  }
+}
+
+// FEATURE: Media query mock device columns
+// TODO: possible optimization
+@if $mock-media {
+  @each $name, $size in $all {
+    @media #{range-to-media-query($size)} {
+      @each $media-name, $media-size in $exacts {
+        .\:media-#{$media-name}-#{$name} {
+          @each $name, $size in $all {
+            @if fit-in-size($size, $media-size) {
+              // Here
+              .#{$row}.\:grow-#{$name} > * {
+                flex-grow: 1;
+              }
+              .#{$row}.\:\!grow-#{$name} > * {
+                flex-grow: 0;
+              }
+              .#{$row}.\:shrink-#{$name} > * {
+                flex-shrink: 1;
+              }
+              .#{$row}.\:\!shrink-#{$name} > * {
+                flex-shrink: 0;
+              }
+              .#{$row}.\:wrap-#{$name} {
+                flex-wrap: wrap;
+                > * {
+                  flex-shrink: 0;
+                }
+              }
+              // end Here
+            }
+          }
+        }
       }
     }
   }

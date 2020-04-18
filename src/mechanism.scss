@@ -40,14 +40,7 @@ $column-count: 12;
   flex: 0 1 auto;
 }
 
-@if $css-custom-properties {
-  :root {
-    @for $i from 1 through $column-count {
-      $value: 100% / $column-count * $i;
-      --c-#{$i}: #{$value};
-    }
-  }
-}
+
 
 @import "row/align.scss";
 @import "row/modifier.scss";

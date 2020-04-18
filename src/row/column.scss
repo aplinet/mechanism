@@ -12,11 +12,7 @@
   @media #{range-to-media-query($size)} {
     @for $i from 1 through $column-count {
       .#{$row}.\:col-#{$i}-#{$name} > * {
-        @if $css-custom-properties {
-          flex-basis: var(--c-#{$i});
-        } @else {
-          flex-basis: 100% / $column-count * $i;
-        }
+        flex-basis: 100% / $column-count * $i;
       }
     }
   }

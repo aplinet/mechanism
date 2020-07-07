@@ -12,7 +12,7 @@
 @each $name, $size in $all {
   @media #{range-to-media-query($size)} {
     @for $i from 1 through $column-count {
-      .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"col")}-#{$i}-#{$name} {
+      .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"col")}-#{$i}#{$separator}#{$name} {
         flex-basis: 100% / $column-count * $i;
       }
     }
@@ -27,7 +27,7 @@
       @each $name, $size in $all {
         @if fit-in-size($size, $media-size) {
           @for $i from 1 through $column-count {
-            .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"col")}-#{$i}-#{$name} {
+            .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"col")}-#{$i}#{$separator}#{$name} {
               flex-basis: 100% / $column-count * $i;
             }
           }
@@ -46,7 +46,7 @@
           @each $name, $size in $all {
             @if fit-in-size($size, $media-size) {
               @for $i from 1 through $column-count {
-                .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"col")}-#{$i}-#{$name} {
+                .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"col")}-#{$i}#{$separator}#{$name} {
                   flex-basis: 100% / $column-count * $i;
                 }
               }

@@ -25,22 +25,22 @@
 
 @each $name, $size in $all {
   @media #{range-to-media-query($size)} {
-    .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"grow")}-#{$name} {
+    .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"grow")}#{$separator}#{$name} {
       flex-grow: 1;
     }
-    .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"grow")}-#{$name} {
+    .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"grow")}#{$separator}#{$name} {
       flex-grow: 0;
     }
-    .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"shrink")}-#{$name} {
+    .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"shrink")}#{$separator}#{$name} {
       flex-shrink: 1;
     }
-    .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}-#{$name} {
+    .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}#{$separator}#{$name} {
       flex-shrink: 0;
     }
-    .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}-#{$name} {
+    .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}#{$separator}#{$name} {
       padding: 2px 8px;
     }
-    .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}-#{$name} {
+    .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}#{$separator}#{$name} {
       padding: 0;
     }
   }
@@ -54,22 +54,22 @@
       @each $name, $size in $all {
         @if fit-in-size($size, $media-size) {
           // Here
-          .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"grow")}-#{$name} {
+          .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"grow")}#{$separator}#{$name} {
             flex-grow: 1;
           }
-          .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"grow")}-#{$name} {
+          .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"grow")}#{$separator}#{$name} {
             flex-grow: 0;
           }
-          .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"shrink")}-#{$name} {
+          .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"shrink")}#{$separator}#{$name} {
             flex-shrink: 1;
           }
-          .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}-#{$name} {
+          .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}#{$separator}#{$name} {
             flex-shrink: 0;
           }
-          .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}-#{$name} {
+          .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}#{$separator}#{$name} {
             padding: 2px 8px;
           }
-          .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}-#{$name} {
+          .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}#{$separator}#{$name} {
             padding: 0;
           }
           // endHere
@@ -88,22 +88,22 @@
           @each $name, $size in $all {
             @if fit-in-size($size, $media-size) {
               // Here
-              .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"grow")}-#{$name} {
+              .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"grow")}#{$separator}#{$name} {
                 flex-grow: 1;
               }
-              .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"grow")}-#{$name} {
+              .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"grow")}#{$separator}#{$name} {
                 flex-grow: 0;
               }
-              .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"shrink")}-#{$name} {
+              .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"shrink")}#{$separator}#{$name} {
                 flex-shrink: 1;
               }
-              .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}-#{$name} {
+              .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}#{$separator}#{$name} {
                 flex-shrink: 0;
               }
-              .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}-#{$name} {
+              .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}#{$separator}#{$name} {
                 padding: 2px 8px;
               }
-              .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}-#{$name} {
+              .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}#{$separator}#{$name} {
                 padding: 0;
               }
 

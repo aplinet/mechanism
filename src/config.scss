@@ -1,6 +1,6 @@
 $mock-media: false !default; // :media:sm
 $ranges: false !default; // *:md-  *:sm+
-$separator: ":" !default; // i.e for "-" :grow-md-, for ":" :grow:md-
+$separator: "\\:" !default; // i.e for "-" :grow-md-, for ":" :grow:md-
 $nano-commands: true !default;
 $dictionary: (
   "row": "row",

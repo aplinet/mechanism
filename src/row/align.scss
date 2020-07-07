@@ -71,17 +71,17 @@ $v-aligns: (
     @each $hKey, $hExpressionMap in $h-aligns {
       @each $vKey, $vExpressionMap in $v-aligns {
         @if $hKey != "null" and $vKey != "null" {
-          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$vKey}-#{$name},
-          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$hKey}-#{$name} {
+          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$vKey}#{$separator}#{$name},
+          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$hKey}#{$separator}#{$name} {
             #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
             #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
           }
         } @else if $hKey == "null" and $vKey != "null" {
-          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}-#{$name} {
+          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$separator}#{$name} {
             #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
           }
         } @else if $hKey!= "null" and $vKey == "null" {
-          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}-#{$name} {
+          .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$separator}#{$name} {
             #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
           }
         }
@@ -101,17 +101,17 @@ $v-aligns: (
           @each $hKey, $hExpressionMap in $h-aligns {
             @each $vKey, $vExpressionMap in $v-aligns {
               @if $hKey != "null" and $vKey != "null" {
-                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$vKey}-#{$name},
-                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$hKey}-#{$name} {
+                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$vKey}#{$separator}#{$name},
+                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$hKey}#{$separator}#{$name} {
                   #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
                   #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
                 }
               } @else if $hKey == "null" and $vKey != "null" {
-                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}-#{$name} {
+                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$separator}#{$name} {
                   #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
                 }
               } @else if $hKey!= "null" and $vKey == "null" {
-                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}-#{$name} {
+                .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$separator}#{$name} {
                   #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
                 }
               }
@@ -136,17 +136,17 @@ $v-aligns: (
               @each $hKey, $hExpressionMap in $h-aligns {
                 @each $vKey, $vExpressionMap in $v-aligns {
                   @if $hKey != "null" and $vKey != "null" {
-                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$vKey}-#{$name},
-                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$hKey}-#{$name} {
+                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$vKey}#{$separator}#{$name},
+                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$hKey}#{$separator}#{$name} {
                       #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
                       #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
                     }
                   } @else if $hKey == "null" and $vKey != "null" {
-                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}-#{$name} {
+                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$vKey}#{$separator}#{$name} {
                       #{map-get($vExpressionMap,property)}: #{map-get($vExpressionMap, value)};
                     }
                   } @else if $hKey!= "null" and $vKey == "null" {
-                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}-#{$name} {
+                    .#{map-get($dictionary,"row")}.\:#{map-get($dictionary,"align")}-#{$hKey}#{$separator}#{$name} {
                       #{map-get($hExpressionMap,property)}: #{map-get($hExpressionMap, value)};
                     }
                   }

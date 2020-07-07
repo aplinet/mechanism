@@ -1,7 +1,7 @@
-$mock-media: false; // :media:sm
-$ranges: false; // *:md-  *:sm+
-$separator: ":"; // i.e for "-" :grow-md-, for ":" :grow:md-
-$nano-commands: true;
+$mock-media: false !default; // :media:sm
+$ranges: false !default; // *:md-  *:sm+
+$separator: ":" !default; // i.e for "-" :grow-md-, for ":" :grow:md-
+$nano-commands: true !default;
 $dictionary: (
   "row": "row",
   "align": "align",
@@ -11,7 +11,7 @@ $dictionary: (
   "col": "col",
   "wrap": "wrap",
   "padded": "padded"
-);
+) !default;
 @if $nano-commands {
   $dictionary: (
     "row": "r",
@@ -22,5 +22,5 @@ $dictionary: (
     "col": "c",
     "wrap": "w",
     "padded": "p"
-  );
+  ) ;
 }

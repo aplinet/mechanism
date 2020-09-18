@@ -10,60 +10,69 @@
     @return "(min-width:" + map-get($size, "min") + ")" +" and " +"(max-width:" + map-get($size, "max") + ")";
   }
 }
-@function generate-ranges($exacts) {
+@function generate-ranges($exacts, $use-ranges) {
   $result: ();
-  // $separator: list.separator($list);
+
   @each $key, $value in $exacts {
     @if type-of(map-get($value, "min")) == "null" and type-of(map-get($value, "max")) == "number" {
-      // FEATURE: max only
-      $max: map-get($value, "max");
-      $result: map-merge(
-        $result,
-        (
-          $key +
-            "\\+":
-            (
-              "min": $max + 1
-            )
-        )
-      );
+      @if $use-ranges == true or $use-ranges== "+" {
+        // FEATURE: max only
+        $max: map-get($value, "max");
+        $result: map-merge(
+          $result,
+          (
+            $key +
+              "\\+":
+              (
+                "min": $max + 1,
+              )
+          )
+        );
+      }
     } @else if type-of(map-get($value, "max")) == "null" and type-of(map-get($value, "min")) == "number" {
-      // FEATURE: min only
-      $min: map-get($value, "min");
-      $result: map-merge(
-        $result,
-        (
-          $key +
-            "\\-":
-            (
-              "max": $min - 1
-            )
-        )
-      );
+      @if $use-ranges == true or $use-ranges== "-" {
+        // FEATURE: min only
+        $min: map-get($value, "min");
+        $result: map-merge(
+          $result,
+          (
+            $key +
+              "\\-":
+              (
+                "max": $min - 1,
+              )
+          )
+        );
+      }
     } @else if type-of(map-get($value, "max")) == "number" and type-of(map-get($value, "min")) == "number" {
       // FEATURE: min and max
       $min: map-get($value, "min");
       $max: map-get($value, "max");
-      $result: map-merge(
-        $result,
-        (
-          $key +
-            "\\+":
-            (
-              min: $max + 1
-            )
-        )
-      );
-      $result: map-merge(
-        $result,
-        (
-          $key +
-            "\\-":
-            (
-              max: $min - 1
-            )
-        )
-      );
+
+      @if $use-ranges == true or $use-ranges== "+" {
+        $result: map-merge(
+          $result,
+          (
+            $key +
+              "\\+":
+              (
+                min: $max + 1,
+              )
+          )
+        );
+      }
+      @if $use-ranges == true or $use-ranges== "-" {
+        $result: map-merge(
+          $result,
+          (
+            $key +
+              "\\-":
+              (
+                max: $min - 1,
+              )
+          )
+        );
+      }
     }
   }
   @return $result;
@@ -95,7 +104,7 @@
       $exact: map-merge(
         $exact,
         (
-          $key: "(max-width:" + $max + ")"
+          $key: "(max-width:" + $max + ")",
         )
       );
       $range: map-merge($range, ($key + "\\+": "(min-width:" + $max + ")"));
@@ -106,7 +115,7 @@
       $exact: map-merge(
         $exact,
         (
-          $key: "(min-width:" + $min + ")"
+          $key: "(min-width:" + $min + ")",
         )
       );
       $range: map-merge($range, ($key + "\\-": "(max-width:" + $min + ")"));
@@ -118,7 +127,7 @@
       $exact: map-merge(
         $exact,
         (
-          $key: "(min-width:" + $min + ")" +" and " +"(max-width:" + $max + ")"
+          $key: "(min-width:" + $min + ")" +" and " +"(max-width:" + $max + ")",
         )
       );
       $range: map-merge($range, ($key + "\\+": "(min-width:" + $max + ")"));
@@ -235,7 +244,7 @@
     $sortedMap: map-merge(
       $sortedMap,
       (
-        $key: $value
+        $key: $value,
       )
     );
 

@@ -1,5 +1,5 @@
 $mock-media: false !default; // :media:sm
-$ranges: false !default; // *:md-  *:sm+
+$use-ranges: '+' !default; //  [false,true,'+','-']   example: *:md-  *:sm+
 $separator: "\\:" !default; // i.e for "-" :grow-md-, for ":" :grow:md-
 $nano-commands: true !default;
 $dictionary: (

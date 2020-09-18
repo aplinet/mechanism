@@ -24,8 +24,8 @@ $exacts: (
 $all: $exacts;
 $column-count: 12;
 
-@if $ranges {
-  $ranges: generate-ranges($exacts);
+@if $use-ranges != false {
+  $ranges: generate-ranges($exacts,$use-ranges);
   $all: map-merge($ranges, $exacts);
 }
 

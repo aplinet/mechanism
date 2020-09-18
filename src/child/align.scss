@@ -3,7 +3,9 @@
 $h-aligns: (
   "l": (
     "property": "margin-right",
-    "value": "auto"
+    "value": "auto",
+    "property2": "margin-left",
+    "value2": "0"
   ),
   "c": (
     "property": "margin-left",
@@ -13,7 +15,9 @@ $h-aligns: (
   ),
   "r": (
     "property": "margin-left",
-    "value": "auto"
+    "value": "auto",
+    "property2": "margin-right",
+    "value2": "0"
   ),
   "e": (
     "property": "justify-content",

@@ -1,7 +1,8 @@
 $mock-media: false !default; // :media:sm
-$use-ranges: '+' !default; //  [false,true,'+','-']   example: *:md-  *:sm+
+$use-ranges: "+" !default; //  [false,true,'+','-']   example: *:md-  *:sm+
 $separator: "\\:" !default; // i.e for "-" :grow-md-, for ":" :grow:md-
 $nano-commands: true !default;
+$gap: 7.5px;
 $dictionary: (
   "row": "row",
   "align": "align",
@@ -10,7 +11,7 @@ $dictionary: (
   "shrink": "shrink",
   "col": "col",
   "wrap": "wrap",
-  "padded": "padded"
+  "padded": "padded",
 ) !default;
 @if $nano-commands {
   $dictionary: (
@@ -21,6 +22,6 @@ $dictionary: (
     "shrink": "s",
     "col": "c",
     "wrap": "w",
-    "padded": "p"
-  ) ;
+    "padded": "p",
+  );
 }

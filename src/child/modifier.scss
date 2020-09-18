@@ -14,12 +14,8 @@
 .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")} {
   flex-shrink: 0;
 }
-.#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")} {
-  padding: 2px 8px;
-}
-.#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")} {
-  padding: 0;
-}
+
+
 
 // FEATURE: Child - Media modifiers
 
@@ -37,12 +33,7 @@
     .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}#{$separator}#{$name} {
       flex-shrink: 0;
     }
-    .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}#{$separator}#{$name} {
-      padding: 2px 8px;
-    }
-    .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}#{$separator}#{$name} {
-      padding: 0;
-    }
+   
   }
 }
 
@@ -66,12 +57,7 @@
           .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}#{$separator}#{$name} {
             flex-shrink: 0;
           }
-          .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}#{$separator}#{$name} {
-            padding: 2px 8px;
-          }
-          .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}#{$separator}#{$name} {
-            padding: 0;
-          }
+       
           // endHere
         }
       }
@@ -100,12 +86,7 @@
               .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"shrink")}#{$separator}#{$name} {
                 flex-shrink: 0;
               }
-              .#{map-get($dictionary,"row")} > .#{map-get($dictionary,"padded")}#{$separator}#{$name} {
-                padding: 2px 8px;
-              }
-              .#{map-get($dictionary,"row")} > .\!#{map-get($dictionary,"padded")}#{$separator}#{$name} {
-                padding: 0;
-              }
+        
 
               // end Here
             }

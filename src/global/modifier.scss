@@ -1,0 +1,94 @@
+// SECTION: Global modifiers
+// FEATURE: Global modifiers
+
+.#{map-get($dictionary,"padded")} {
+  padding-left: $gap !important;
+  padding-right: $gap !important;
+}
+.\!#{map-get($dictionary,"padded")} {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.\^#{map-get($dictionary,"padded")} {
+  margin-left: -$gap;
+  margin-right: -$gap;
+}
+
+// FEATURE: Child - Media modifiers
+
+@each $name, $size in $all {
+  @media #{range-to-media-query($size)} {
+    .#{map-get($dictionary,"padded")}#{$separator}#{$name} {
+      padding-left: $gap !important;
+      padding-right: $gap !important;
+    }
+    .\!#{map-get($dictionary,"padded")}#{$separator}#{$name} {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    .\^#{map-get($dictionary,"padded")}#{$separator}#{$name} {
+      margin-left: -$gap;
+      margin-right: -$gap;
+    }
+  }
+}
+
+// FEATURE: Child - Mock device modifiers
+
+@if $mock-media {
+  @each $media-name, $media-size in $exacts {
+    .\:media-#{$media-name} {
+      @each $name, $size in $all {
+        @if fit-in-size($size, $media-size) {
+          // Here
+
+          .#{map-get($dictionary,"padded")}#{$separator}#{$name} {
+            padding-left: $gap !important;
+            padding-right: $gap !important;
+          }
+          .\!#{map-get($dictionary,"padded")}#{$separator}#{$name} {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+          }
+          .\^#{map-get($dictionary,"padded")}#{$separator}#{$name} {
+            margin-left: -$gap;
+            margin-right: -$gap;
+          }
+          // endHere
+        }
+      }
+    }
+  }
+}
+// FEATURE: Child - Media mock device modifiers
+
+@if $mock-media {
+  @each $name, $size in $all {
+    @media #{range-to-media-query($size)} {
+      @each $media-name, $media-size in $exacts {
+        .\:media-#{$media-name}-#{$name} {
+          @each $name, $size in $all {
+            @if fit-in-size($size, $media-size) {
+              // Here
+
+              .#{map-get($dictionary,"padded")}#{$separator}#{$name} {
+                padding-left: $gap !important;
+                padding-right: $gap !important;
+              }
+              .\!#{map-get($dictionary,"padded")}#{$separator}#{$name} {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+              }
+              .\^#{map-get($dictionary,"padded")}#{$separator}#{$name} {
+                margin-left: -$gap;
+                margin-right: -$gap;
+              }
+
+              // end Here
+            }
+          }
+        }
+      }
+    }
+  }
+}
